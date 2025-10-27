@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section className="relative rounded-[2.5rem] overflow-hidden bg-muted my-12 animate-fade-in">
-      <div className="grid md:grid-cols-2 gap-12 p-12 md:p-16 lg:p-20">
+      <div className="grid md:grid-cols-2 gap-12 p-8 md:p-16 lg:p-20">
         {/* Left side - Image */}
         <div className="relative aspect-[4/3] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in">
           <img
@@ -21,8 +21,8 @@ const HeroSection = () => {
               Journey Through Life's Spectrum
             </h1>
             <p className="text-muted-foreground text-xl leading-relaxed max-w-xl animate-slide-up stagger-1">
-              Welcome to Perspective's Blog: A Realm of Reflection, Inspiration, and Discovery. 
-              Where Words Illuminate Paths of Meaning and Thoughts Unravel the Mysteries of Life's Spectrum.
+              Welcome to Perspective's Blog: A Realm of Reflection, Inspiration, and Discovery. Where Words Illuminate
+              Paths of Meaning and Thoughts Unravel the Mysteries of Life's Spectrum.
             </p>
           </div>
 
@@ -30,7 +30,7 @@ const HeroSection = () => {
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-6 text-base font-medium transition-all hover:scale-105">
               Join Now
             </Button>
-            
+
             <div className="flex items-center gap-4">
               <a
                 href="#instagram"
