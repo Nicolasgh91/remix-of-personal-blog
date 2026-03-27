@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# Demo blog / landing — Escalá tu negocio con IA
 
-## Project info
+Aplicación **SPA** (React + Vite) para contenido por categorías, alineada a la demo pública:
 
-**URL**: https://lovable.dev/projects/7410f81b-8218-4f2d-bb32-1ba1f84eabb2
+**[https://demo.escalatunegocioconia.com/](https://demo.escalatunegocioconia.com/)**
 
-## How can I edit this code?
+## Arquitectura y stack
 
-There are several ways of editing your application.
+| Área | Tecnología |
+|------|------------|
+| Build | [Vite 5](https://vitejs.dev/) · TypeScript |
+| UI | [React 18](https://react.dev/) · [React Router 6](https://reactrouter.com/) |
+| Estado remoto / caché | [TanStack Query](https://tanstack.com/query) |
+| Componentes | [shadcn/ui](https://ui.shadcn.com/) · [Radix UI](https://www.radix-ui.com/) |
+| Estilos | [Tailwind CSS](https://tailwindcss.com/) |
 
-**Use Lovable**
+Los artículos y metadatos de ejemplo están centralizados en `src/data/articles.ts` (fuente única para el contenido mock del demo).
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7410f81b-8218-4f2d-bb32-1ba1f84eabb2) and start prompting.
+No se requieren variables de entorno para ejecutar el proyecto. Si se incorporan claves públicas (`VITE_*`), documentarlas en `.env.example` y excluir secretos del repositorio.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Requisitos
 
-**Use your preferred IDE**
+- **Node.js** 20 LTS o superior (compatible con la versión de Vite declarada en el proyecto).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Desarrollo local
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+git clone <URL_DEL_REPOSITORIO>
+cd <DIRECTORIO_CLONADO>
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Sustituye `<URL_DEL_REPOSITORIO>` por la URL **HTTPS o SSH** que muestra la página del repositorio en GitHub (*Code*).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Scripts
 
-**Use GitHub Codespaces**
+| Comando | Descripción |
+|--------|-------------|
+| `npm run dev` | Servidor de desarrollo (Vite). |
+| `npm run build` | Salida de producción en `dist/`. |
+| `npm run build:dev` | Build en modo `development`. |
+| `npm run preview` | Previsualiza el build estático. |
+| `npm run lint` | Análisis con ESLint. |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Enrutamiento
 
-## What technologies are used for this project?
+Rutas definidas en `src/App.tsx`:
 
-This project is built with:
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Inicio |
+| `/article/:id` | Detalle de artículo |
+| `/wellness` · `/travel` · `/creativity` · `/growth` | Listados por categoría |
+| `/about` · `/authors` · `/contact` | Páginas informativas |
+| `/style-guide` | Referencia de UI |
+| `/privacy` · `/terms` | Legales |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Despliegue
 
-## How can I deploy this project?
+El build (`npm run build`) genera estáticos servibles desde cualquier CDN u host estático. En **Vercel**, `vercel.json` aplica un rewrite de rutas hacia `index.html` para que la SPA responda correctamente al refrescar URLs profundas (comportamiento esperado con `BrowserRouter`).
 
-Simply open [Lovable](https://lovable.dev/projects/7410f81b-8218-4f2d-bb32-1ba1f84eabb2) and click on Share -> Publish.
+En `index.html`, la meta `robots` está configurada como `noindex, nofollow` para un despliegue de **demo** que no deba competir en buscadores con el dominio principal. Si este build pasa a ser el sitio canónico, revisa esa directiva y el `canonical`.
 
-## Can I connect a custom domain to my Lovable project?
+## Mantenimiento
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- Mantener el README alineado con los scripts de `package.json` y las rutas reales.
+- Evitar incluir identificadores internos de herramientas de prototipado o cuentas personales en metadatos expuestos al cliente (`index.html`, Open Graph, etc.).
