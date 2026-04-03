@@ -2,7 +2,7 @@
 
 Aplicación **SPA** (React + Vite) para contenido por categorías, alineada a la demo pública:
 
-**[https://demo.escalatunegocioconia.com/](https://demo.escalatunegocioconia.com/)**
+**[https://creador-contenido.escalatunegocioconia.com/](https://creador-contenido.escalatunegocioconia.com/)**
 
 ## Arquitectura y stack
 
