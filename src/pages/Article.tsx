@@ -56,6 +56,11 @@ const Article = () => {
             src={article.image}
             alt={article.title}
             className="w-full h-full object-cover"
+            style={
+              article.heroImagePosition
+                ? { objectPosition: article.heroImagePosition }
+                : undefined
+            }
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
@@ -136,7 +141,7 @@ const Article = () => {
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none mb-16 animate-slide-up stagger-2">
-            <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+            <p className="text-lg leading-relaxed text-muted-foreground mb-8 whitespace-pre-line">
               {article.content.introduction}
             </p>
 
@@ -195,6 +200,24 @@ const Article = () => {
                 ) : null}
               </div>
             ))}
+
+            {article.content.bibliography ? (
+              <div className="mt-12 mb-10 space-y-4 not-prose">
+                <h2 className="text-3xl font-bold">{article.content.bibliography.heading}</h2>
+                {article.content.bibliography.content?.trim() ? (
+                  <p className="text-lg leading-relaxed text-muted-foreground">
+                    {article.content.bibliography.content}
+                  </p>
+                ) : null}
+                <ul className="list-disc list-outside pl-6 space-y-3 text-lg leading-relaxed text-muted-foreground">
+                  {article.content.bibliography.unorderedList.map((item, i) => (
+                    <li key={i} className="pl-1">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
 
             {article.content.conclusion ? (
               isStructuredArticleConclusion(article.content.conclusion) ? (

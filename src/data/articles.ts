@@ -1,4 +1,6 @@
 import article001Banner from "@/assets/article-001/customer-lifetime-value-graph.webp";
+import article002Banner from "@/assets/article 002/SEO-en-videos-cortos.webp";
+import article003Banner from "@/assets/article 04/think-bigger.png";
 
 /** Texto único (cursiva en UI) o bloque con título + párrafos. Cadena vacía = sin bloque de conclusión. */
 export type ArticleConclusion =
@@ -23,6 +25,13 @@ export type ArticleSection = {
   blockquote?: string;
 };
 
+/** Bibliografía al pie, opcional; se renderiza antes del bloque de conclusión. */
+export type ArticleBibliography = {
+  heading: string;
+  content?: string;
+  unorderedList: string[];
+};
+
 export interface Article {
   id: string;
   title: string;
@@ -31,6 +40,8 @@ export interface Article {
   date: string;
   readTime: string;
   image: string;
+  /** `object-position` del hero en la página de artículo (no afecta thumbnails). Solo definir cuando el encuadre con `object-cover` lo requiera. */
+  heroImagePosition?: string;
   author: {
     name: string;
     avatar: string;
@@ -44,6 +55,7 @@ export interface Article {
     inlineImageCaption?: string;
     sections: ArticleSection[];
     conclusion: ArticleConclusion;
+    bibliography?: ArticleBibliography;
   };
   tags: string[];
 }
@@ -167,77 +179,130 @@ export const articles: Article[] = [
   },
   {
     id: "002",
-    title: "Ink-Stained Insights",
-    subtitle: "The art of journaling for a more intentional lifestyle",
-    category: "Lifestyle",
-    date: "Oct 23, 2024",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80",
+    title: "SEO en videos cortos: cómo dominar el nuevo motor de búsqueda audiovisual",
+    subtitle:
+      "TikTok y Reels dejaron de ser plataformas exclusivas de entretenimiento para convertirse en los motores de búsqueda locales preferidos por las nuevas generaciones.",
+    category: "Growth",
+    date: "15 abr 2026",
+    readTime: "5 min",
+    image: article002Banner,
     author: {
-      name: "Sofia Rodriguez",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80",
-      bio: "Creative writer and mindfulness practitioner",
+      name: "Alex Jensen",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+      bio: "Analista de crecimiento y estratega digital",
     },
     content: {
-      introduction: "There's something profound about putting pen to paper—the way ink flows across the page, capturing thoughts that might otherwise evaporate. In our digital age, the practice of journaling offers a rare opportunity to slow down, reflect, and connect with ourselves in a tangible, meaningful way.",
+      introduction:
+        "El comportamiento de descubrimiento digital está atravesando su mayor mutación desde la invención del motor de búsqueda. Hoy, cuando la Generación Z y los millennials buscan un restaurante, una reseña de software o un tutorial rápido, ya no abren Google; abren TikTok o Instagram. Esta transición representa un desafío masivo para las estrategias de adquisición tradicionales, pero también abre una ventana de oportunidad asimétrica para los estrategas de growth que entiendan cómo indexar contenido en el ecosistema de video vertical.",
       sections: [
         {
-          heading: "Why Analog Matters",
-          content: "While digital tools have their place, there's neuroscience behind why handwriting engages our brain differently. The physical act of writing slows our thinking, allowing for deeper processing and reflection. It's a form of mindfulness in action, anchoring us in the present moment while we explore our inner landscape.",
+          heading: "El declive del monopolio de la búsqueda tradicional",
+          paragraphs: [
+            "El cambio en la intención de búsqueda responde a una necesidad de fricción cero y validación visual instantánea. Los usuarios modernos desconfían de las páginas web corporativas y de las reseñas de texto anónimas que pueden ser fácilmente manipuladas. Buscan autenticidad, contexto visual y respuestas en menos de 60 segundos.",
+            "Los algoritmos de plataformas como TikTok han evolucionado de simples motores de recomendación de entretenimiento a sofisticados indexadores de contenido. Ya no solo evalúan el engagement (retención del video y compartidos), sino que procesan el lenguaje natural del audio, los textos en pantalla y los metadatos para resolver consultas de búsqueda específicas.",
+          ],
         },
         {
-          heading: "Creating Your Practice",
-          content: "Your journaling practice doesn't need to be elaborate or time-consuming. Start with five minutes each morning or evening. Write freely without judgment—this isn't about perfect prose or profound insights. It's about showing up for yourself, creating space for reflection, and building a relationship with your thoughts and feelings.",
+          heading: "Anatomía de la optimización audiovisual",
+          content:
+            "Hacer SEO en video requiere entender que el algoritmo es ciego, pero tiene una capacidad de lectura y escucha excepcional. Para posicionar un video corto frente a una intención de búsqueda, es necesario estructurar la información en múltiples capas:",
+          orderedList: [
+            "Ingeniería del guion (Speech-to-text): el algoritmo transcribe automáticamente el audio del video. Las palabras clave principales deben ser pronunciadas claramente en los primeros 3 segundos. Si el video trata sobre «herramientas de automatización para PyMEs», esa frase exacta debe ser el gancho vocal.",
+            "Superposiciones de texto nativo: el texto que se añade utilizando el editor interno de la plataforma es indexado con alta prioridad. Un título flotante actúa como la etiqueta H1 de una página web tradicional.",
+            "Optimización de la descripción (Captioning): la descripción ya no es el lugar para emojis aleatorios. Funciona como la etiqueta meta-descripción. Debe contener párrafos ricos en palabras clave long-tail que respondan a las dudas específicas del usuario.",
+          ],
         },
         {
-          heading: "Prompts for Deeper Reflection",
-          content: "When you're not sure what to write, prompts can guide you: What am I grateful for today? What challenged me and what did I learn? What do I need more of in my life? What can I let go of? These questions invite introspection and help us identify patterns in our thoughts and behaviors.",
-        },
-        {
-          heading: "The Gift of Looking Back",
-          content: "One of journaling's greatest gifts reveals itself over time. Looking back through old entries, we see how we've grown, what we've overcome, and patterns we might want to change. This historical perspective offers wisdom we can't access in the present moment alone.",
+          heading: "Hackeando el descubrimiento local (GEO SEO)",
+          paragraphs: [
+            "Para los negocios físicos o de servicios hiper-localizados, el video corto es el nuevo Google Mi Negocio. La clave de la adquisición radica en acotar la competencia mediante la geo-localización.",
+            "En lugar de competir por términos amplios como «mejor cafetería de especialidad», la estrategia de crecimiento dicta atacar combinaciones locales exactas: añadir etiquetas de ubicación precisas, mencionar barrios específicos en el audio y utilizar hashtags geolocalizados (ej. #CafeteriaPalermo #EmprendedoresCABA). Al hacerlo, el algoritmo empareja la dirección IP y el historial de ubicación del usuario con el contenido hiper-local.",
+          ],
+          blockquote:
+            "El SEO ya no se trata solo de indexar texto en rastreadores web; se trata de indexar contexto, ubicación y autenticidad en algoritmos de recomendación visual.",
         },
       ],
-      conclusion: "Journaling is more than record-keeping—it's a practice of self-discovery and intentional living. Those ink-stained pages become a map of your inner journey, a testament to your growth, and a tool for creating the life you envision. Start today, even if just for five minutes. Your future self will thank you.",
+      conclusion: {
+        heading: "Conclusión: la adaptación visual como mandato de supervivencia",
+        paragraphs: [
+          "Ignorar la optimización de búsqueda en videos cortos es el equivalente moderno a no tener una página web responsiva hace una década. Las marcas que continúen tratando a TikTok o Reels exclusivamente como canales de «baile» o tendencias virales perderán sistemáticamente cuota de mercado frente a competidores que entiendan el juego de la retención visual orientada a la búsqueda. La estrategia ganadora consiste en crear contenido que no solo interrumpa el scroll, sino que responda a preguntas precisas.",
+        ],
+      },
+      bibliography: {
+        heading: "Bibliografía de referencia",
+        content:
+          "Para la elaboración de este análisis sobre el comportamiento algorítmico y visual, se han consultado las siguientes fuentes de la industria:",
+        unorderedList: [
+          "Prabhakar Raghavan (Senior Vice President, Google): declaraciones públicas en la conferencia Brainstorm Tech sobre el impacto de TikTok e Instagram en las búsquedas principales de Google Maps y Search.",
+          "HubSpot: State of Marketing Report (tendencias de ROI en formatos de video corto y adopción por parte de equipos de marketing B2B).",
+          "Hootsuite: Social Media Trends Report (análisis de la evolución de las redes sociales como motores de descubrimiento y comercio social).",
+        ],
+      },
     },
-    tags: ["journaling", "mindfulness", "self-reflection", "lifestyle"],
+    tags: ["SEO", "TikTok", "Reels", "growth hacking", "búsqueda local"],
   },
   {
     id: "003",
-    title: "Musings in Grayscale",
-    subtitle: "Finding beauty and clarity in life's neutral moments",
-    category: "Community",
-    date: "Dec 4, 2024",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=1920&q=80",
+    title: "Micro-influenciadores B2B en LinkedIn: el nuevo motor de confianza empresarial",
+    subtitle:
+      "Por qué las marcas empresariales están abandonando el alcance masivo para aliarse con referentes técnicos de nicho en la red profesional.",
+    category: "Growth",
+    date: "20 abr 2026",
+    readTime: "6 min",
+    image: article003Banner,
+    heroImagePosition: "center 35%",
     author: {
-      name: "Marcus Chen",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      bio: "Community builder and contemplative writer",
+      name: "Alex Jensen",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+      bio: "Analista de crecimiento y estratega digital",
     },
     content: {
-      introduction: "We often seek the extremes—the peaks of joy, the depths of sorrow, the bright colors that define our experiences. But what about the in-between? The neutral moments, the grayscale of everyday life that makes up most of our existence? There's unexpected beauty and wisdom in these spaces.",
+      introduction:
+        "En el ecosistema del marketing de consumo (B2C), la influencia digital se ha medido tradicionalmente en volumen: millones de seguidores, alcance masivo y viralidad instantánea. Sin embargo, cuando se trata de vender software corporativo, servicios de consultoría o arquitecturas de infraestructura, el volumen es irrelevante. En el entorno B2B, la métrica reina no es el alcance, sino la confianza.\n\nAnte la saturación de los canales de publicidad tradicionales y la creciente desconfianza hacia los anuncios corporativos, las empresas están encontrando un canal de adquisición altamente calificado: la colaboración con referentes técnicos en LinkedIn.",
       sections: [
         {
-          heading: "The Overlooked Majority",
-          content: "Most of life isn't dramatic. It's morning coffee, routine commutes, quiet evenings, and ordinary conversations. We tend to overlook these moments, waiting for something 'significant' to happen. Yet these grayscale moments—when approached with presence and appreciation—contain their own quiet richness.",
+          heading: "El colapso de la influencia masiva en B2B",
+          paragraphs: [
+            "El ciclo de ventas empresarial es complejo. Involucra a múltiples tomadores de decisiones, auditorías de seguridad y presupuestos significativos. Un director de tecnología (CTO) no va a aprobar la migración a un nuevo proveedor de servidores en la nube porque un influenciador masivo de estilo de vida lo mencione en un video.",
+            "La influencia en B2B requiere validación de pares. Cuando una marca intenta hablar directamente a su audiencia a través de anuncios pagados, el mensaje es percibido como un discurso de ventas (pitch). Pero cuando un ingeniero de software senior o un analista de datos respetado analiza y valida esa misma herramienta en su feed de LinkedIn, el mensaje se transforma en una recomendación técnica.",
+          ],
         },
         {
-          heading: "Community in the Mundane",
-          content: "Some of the deepest community connections happen not in grand gestures but in ordinary moments: the neighbor who waves each morning, the barista who remembers your order, the colleague who checks in during a regular Tuesday. These small, repeated interactions create the texture of belonging.",
+          heading: "Anatomía del micro-influenciador técnico",
+          paragraphs: [
+            "A diferencia de los creadores de contenido tradicionales, el micro-influenciador B2B rara vez se dedica exclusivamente a crear contenido. Son profesionales activos en su industria: ingenieros, arquitectos de software, gerentes de producto o fundadores de agencias boutique.",
+            "Sus audiencias suelen ser pequeñas (entre 5.000 y 30.000 seguidores), pero su nivel de engagement es asimétrico. Una publicación técnica detallando la arquitectura de un sistema puede generar cientos de comentarios de otros directores y gerentes de alto perfil. Poseen el activo más caro y difícil de adquirir en el mercado empresarial: el respeto intelectual de un nicho hiper-segmentado.",
+          ],
         },
         {
-          heading: "Finding Clarity in Neutrality",
-          content: "When we're not caught up in emotional extremes, we can see more clearly. The grayscale moments offer perspective—a chance to observe our lives without the distortion of intense emotion. This clarity helps us make better decisions and understand what truly matters to us.",
-        },
-        {
-          heading: "Cultivating Appreciation",
-          content: "Learning to appreciate the neutral doesn't mean settling for less—it means expanding our capacity for contentment. It's recognizing that a quiet Sunday afternoon, a simple meal with friends, or a walk without destination has its own value. This appreciation makes us resilient and less dependent on external circumstances for our sense of wellbeing.",
+          heading: "Tácticas de colaboración estratégica",
+          content:
+            "Para integrar a estos referentes en un embudo de growth, las empresas deben abandonar el modelo transaccional de «pago por publicación» y adoptar un enfoque de co-creación de valor:",
+          orderedList: [
+            "Auditorías públicas y casos de estudio: en lugar de pagar por una mención superficial, se le otorga acceso gratuito a la plataforma al referente técnico para que realice una auditoría real y publique sus hallazgos de forma transparente, incluyendo áreas de mejora.",
+            "Webinars y paneles técnicos conjuntos: utilizar la plataforma de la empresa para amplificar la voz del experto, ofreciendo un seminario web donde se resuelva un problema real de la industria (ej. «Cómo reducir la latencia en bases de datos distribuidas»).",
+            "Distribución de whitepapers co-autorados: desarrollar documentos de investigación o guías técnicas donde el influenciador aporte el marco teórico y la marca aporte la infraestructura de datos.",
+          ],
         },
       ],
-      conclusion: "Life in grayscale isn't boring—it's the canvas on which everything else appears. By learning to appreciate these neutral moments and the community connections within them, we enrich our entire experience. The next time you find yourself in an 'ordinary' moment, pause and look closer. You might be surprised by what you find.",
+      bibliography: {
+        heading: "Bibliografía de referencia",
+        content:
+          "Para estructurar este análisis sobre la confianza en el ecosistema B2B, se han tomado como base los siguientes reportes y marcos teóricos:",
+        unorderedList: [
+          "Edelman Trust Barometer (2025): reporte sobre la confianza institucional y cómo los expertos técnicos y pares de la industria superan a los CEOs como fuentes de información creíble.",
+          "Ogilvy: B2B Influence: The New Era of Enterprise Marketing (estudio sobre el retorno de inversión en colaboraciones de nicho versus publicidad tradicional).",
+          "LinkedIn B2B Institute: The B2B Effectiveness Code (análisis de estrategias creativas y de construcción de marca a largo plazo en la red profesional).",
+        ],
+      },
+      conclusion: {
+        heading: "Conclusión: la autoridad no se compra, se toma prestada",
+        paragraphs: [
+          "La transición hacia el marketing de micro-influenciadores en LinkedIn representa la maduración del ecosistema B2B. En mercados donde el costo de equivocarse es altísimo para el comprador, la prueba social no puede ser fabricada mediante presupuesto publicitario. Al colaborar estratégicamente con las mentes más respetadas de un sector, las empresas logran algo que ninguna campaña de retargeting puede ofrecer: el préstamo temporal de una reputación técnica impecable. La autoridad se transfiere por asociación, convirtiendo a la comunidad del influenciador en prospectos altamente pre-calificados.",
+        ],
+      },
     },
-    tags: ["mindfulness", "community", "presence", "contentment"],
+    tags: ["LinkedIn", "B2B", "micro-influencers", "autoridad", "growth hacking"],
   },
   {
     id: "W001",
