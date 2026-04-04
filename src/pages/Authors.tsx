@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Mail, Instagram, Twitter } from "lucide-react";
 
 const Authors = () => {
@@ -110,6 +111,8 @@ const Authors = () => {
           </a>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 };

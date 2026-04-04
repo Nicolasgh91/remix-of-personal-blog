@@ -1,3 +1,28 @@
+import article001Banner from "@/assets/article-001/customer-lifetime-value-graph.webp";
+
+/** Texto único (cursiva en UI) o bloque con título + párrafos. Cadena vacía = sin bloque de conclusión. */
+export type ArticleConclusion =
+  | string
+  | {
+      heading: string;
+      paragraphs: string[];
+    };
+
+export function isStructuredArticleConclusion(
+  c: ArticleConclusion
+): c is { heading: string; paragraphs: string[] } {
+  return typeof c === "object" && c !== null && "heading" in c && "paragraphs" in c;
+}
+
+export type ArticleSection = {
+  heading: string;
+  content?: string;
+  paragraphs?: string[];
+  orderedList?: string[];
+  unorderedList?: string[];
+  blockquote?: string;
+};
+
 export interface Article {
   id: string;
   title: string;
@@ -13,52 +38,132 @@ export interface Article {
   };
   content: {
     introduction: string;
-    sections: {
-      heading: string;
-      content: string;
-    }[];
-    conclusion: string;
+    /** Reutiliza `article.image` entre la intro y la primera sección. */
+    inlineHeroAfterIntroduction?: boolean;
+    /** Leyenda visible (SEO); se usa en `<figcaption>` si hay imagen inline. */
+    inlineImageCaption?: string;
+    sections: ArticleSection[];
+    conclusion: ArticleConclusion;
   };
   tags: string[];
 }
 
 export const articles: Article[] = [
   {
-    id: "001",
-    title: "Whispers of Wisdom",
-    subtitle: "Finding clarity in the quiet moments of financial planning",
-    category: "Financing",
-    date: "Oct 16, 2024",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80",
+    id: "AJ001",
+    title: "Análisis profundo: tácticas de automatización para embudos de retención",
+    subtitle: "Alex Jensen | Analista de crecimiento y estratega digital",
+    category: "Growth",
+    date: "4 abr 2026",
+    readTime: "6 min",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
     author: {
-      name: "David Kim",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",
-      bio: "Financial wellness writer and personal growth advocate",
+      name: "Alex Jensen",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+      bio: "Analista de crecimiento y estratega digital",
     },
     content: {
-      introduction: "In a world of financial noise and conflicting advice, sometimes the wisest course of action is to listen to the whispers—those quiet moments of clarity that cut through the chaos. Financial planning isn't just about numbers; it's about understanding your values and aligning your resources with what truly matters.",
+      introduction:
+        "En un ecosistema digital lleno de ruido y tácticas contradictorias, a veces la mejor estrategia es observar los datos con claridad para cortar el caos. El growth hacking no se trata solo de métricas vanidosas; se trata de entender el comportamiento de tus usuarios y alinear tus recursos con los canales que realmente convierten.",
       sections: [
         {
-          heading: "The Power of Quiet Reflection",
-          content: "Before making any major financial decision, we often rush to consume more information, read more articles, or seek more advice. Yet the most profound insights often come when we step back and simply reflect. Taking time for quiet contemplation allows us to connect with our deeper values and understand what financial security truly means to us—not what society tells us it should mean.",
+          heading: "El poder del análisis profundo",
+          content:
+            "antes de lanzar una nueva campaña de adquisición, a menudo nos apresuramos a copiar a la competencia o probar la última red social de moda. Sin embargo, los descubrimientos más rentables suelen aparecer cuando damos un paso atrás y analizamos nuestros propios embudos de venta. Tomarse el tiempo para la experimentación estructurada nos permite conectar con las verdaderas necesidades de nuestra audiencia y entender qué significa realmente la retención para nuestro producto, no lo que la industria nos dice que debería significar.",
         },
         {
-          heading: "Building Financial Awareness",
-          content: "True financial wisdom begins with awareness. This means honestly assessing where you are, understanding your patterns and behaviors around money, and recognizing the emotional drivers behind your financial decisions. It's not about judgment, but about clear-eyed observation. When we can see our financial reality clearly, we're empowered to make intentional changes.",
+          heading: "Construyendo conciencia analítica",
+          content:
+            "el verdadero crecimiento comienza con la medición de eventos. Esto significa evaluar honestamente dónde estás perdiendo usuarios, comprender los patrones de navegación y reconocer los cuellos de botella en tus formularios de pago. No se trata de buscar culpables, sino de tener una observación basada en datos. Cuando podemos ver nuestra realidad analítica claramente, estamos empoderados para ejecutar iteraciones intencionales.",
         },
         {
-          heading: "Small Steps, Lasting Change",
-          content: "The whispers of wisdom often guide us toward small, sustainable actions rather than dramatic overhauls. Perhaps it's automating a small savings contribution, or finally organizing your financial documents, or having that honest conversation about money with your partner. These quiet actions, consistently applied, create profound change over time.",
+          heading: "Pequeños pasos, cambio duradero",
+          content:
+            "las mejores estrategias de growth nos guían hacia micro-optimizaciones sostenibles en lugar de rediseños completos del producto. Quizás sea automatizar una secuencia de correos para carritos abandonados, optimizar el tiempo de carga de tu landing page o realizar pruebas A/B en el color de tus botones de llamada a la acción. Estas mejoras técnicas, aplicadas consistentemente, apalancan el interés compuesto y crean un crecimiento exponencial a lo largo del tiempo.",
         },
         {
-          heading: "Values-Based Financial Planning",
-          content: "When we align our financial decisions with our core values, money becomes a tool for creating the life we want rather than a source of stress and confusion. Ask yourself: What do I truly value? How can my financial choices support those values? The answers to these questions are your compass in navigating financial decisions.",
+          heading: "Estrategia basada en retención",
+          content:
+            "cuando alineamos nuestras decisiones de adquisición con el valor de vida del cliente (LTV), el marketing se convierte en una herramienta predecible para escalar. Preguntate: ¿cuál es la métrica que define el éxito principal de mi usuario? ¿Cómo pueden mis cambios de interfaz reducir la fricción? Las respuestas a estas preguntas son la verdadera brújula para navegar la escalabilidad de tu negocio.",
         },
       ],
-      conclusion: "Financial wisdom isn't found in the loudest voices or the most complex strategies. It's discovered in quiet moments of reflection, in the gentle guidance of your values, and in the consistent application of simple, intentional actions. Listen to the whispers—they often speak the deepest truths.",
+      conclusion: "",
     },
-    tags: ["financial planning", "mindfulness", "personal finance", "values"],
+    tags: ["growth hacking", "retención", "LTV", "experimentación"],
+  },
+  {
+    id: "001",
+    title: "Priorizar la retención sobre la adquisición: la métrica que define la supervivencia",
+    subtitle:
+      "Ante el aumento del costo de adquisición (CAC), el crecimiento sostenible depende de maximizar el valor de vida del cliente (LTV).",
+    category: "Growth",
+    date: "10 abr 2026",
+    readTime: "6 min",
+    image: article001Banner,
+    author: {
+      name: "Alex Jensen",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+      bio: "Analista de crecimiento y estratega digital",
+    },
+    content: {
+      introduction:
+        "En el ecosistema digital actual, la obsesión por adquirir nuevos usuarios ha cegado a muchas empresas ante una realidad matemática ineludible: la adquisición se está volviendo insostenible. Con los costos de publicidad en máximos históricos y la depreciación de las cookies de terceros, la verdadera batalla por la rentabilidad ya no se libra en la parte superior del embudo, sino en la capacidad de retener y expandir el valor de los clientes existentes.",
+      inlineHeroAfterIntroduction: true,
+      inlineImageCaption:
+        "Evolución del customer lifetime value en función del canal de adquisición",
+      sections: [
+        {
+          heading: "El fin de la era de la adquisición barata",
+          paragraphs: [
+            "Durante la última década, las estrategias de marketing se centraron en escalar el presupuesto publicitario. Sin embargo, el Costo de Adquisición de Clientes (CAC) ha aumentado drásticamente. Las empresas que basan su modelo exclusivamente en atraer nuevos leads están construyendo sobre arena. Llenar un balde agujereado con más agua resulta en un esfuerzo operativo enorme que destruye los márgenes de ganancia.",
+            "La solución a este cuello de botella no es gastar más en pauta, sino desviar el enfoque hacia la lealtad y el éxito del cliente.",
+          ],
+        },
+        {
+          heading: "LTV como el verdadero motor de crecimiento",
+          paragraphs: [
+            "El Valor de Vida del Cliente (LTV o CLV) proyecta los ingresos totales que un negocio puede esperar de una sola cuenta a lo largo de su relación. Generar informes predictivos sobre el valor de vida del cliente a partir de sus interacciones es fundamental para entender la salud financiera del proyecto.",
+            "Una regla empírica en el growth hacking establece que una relación LTV:CAC saludable debe ser de al menos 3:1. Si un negocio recupera el costo de adquisición en la primera compra pero nunca vuelve a ver a ese cliente, está operando al límite del fracaso. Aumentar la retención en un 5% puede incrementar los beneficios entre un 25% y un 95%, simplemente porque venderle a un usuario existente elimina la fricción y el costo publicitario inicial.",
+          ],
+        },
+        {
+          heading: "Tácticas accionables para blindar la retención",
+          content:
+            "Para transformar la retención en un canal de crecimiento predecible, es imperativo implementar sistemas que aporten valor continuo:",
+          orderedList: [
+            "Onboarding implacable: los primeros 14 días dictan el futuro de la relación. Si el usuario no experimenta el valor de la solución de forma rápida (el momento «Aha!»), la tasa de abandono (churn) se dispara.",
+            "Estrategias de venta adicional (upsell y cross-sell): la retención facilita la identificación de oportunidades para aumentar el valor del cliente. Ofrecer mejoras o productos complementarios en el momento exacto en que el usuario los necesita no es vender, es aportar soluciones.",
+            "Comunidades y exclusividad: migrar a los clientes de alto valor hacia ecosistemas privados (Slack, Discord, programas VIP) genera un costo de cambio (switching cost) psicológico y social muy alto.",
+          ],
+          blockquote:
+            "El crecimiento real no proviene de adquirir usuarios de forma masiva, sino de construir un producto del que los usuarios actuales no puedan prescindir.",
+        },
+        {
+          heading: "Medir para iterar",
+          content:
+            "El análisis de cohortes es la herramienta principal para auditar la retención. Observar cómo se comportan los usuarios agrupados por su mes de adquisición permite detectar exactamente en qué momento se interrumpe el ciclo de vida. Al alinear los esfuerzos técnicos y de marketing hacia la retención, las empresas logran que cada nuevo cliente adquirido actúe como un interés compuesto en el balance general.",
+        },
+        {
+          heading: "Bibliografía de referencia",
+          content:
+            "Para la elaboración de este análisis y la definición de las estrategias de retención, se han consultado los siguientes marcos teóricos y estudios de la industria:",
+          unorderedList: [
+            "Bain & Company (Reichheld, F.): «Prescription for cutting costs» — estudio fundamental sobre el impacto de la retención del 5% en el aumento de beneficios.",
+            "Ellis, S. y Brown, M. (2017): Hacking Growth: How Today's Fastest-Growing Companies Drive Breakout Success (metodologías ágiles y análisis de cohortes).",
+            "Blank, S. (2013): The Four Steps to the Epiphany (desarrollo y retención de clientes B2B).",
+            "Harvard Business Review: «The Value of Keeping the Right Customers» (análisis sobre la relación LTV:CAC en empresas SaaS).",
+          ],
+        },
+      ],
+      conclusion: {
+        heading: "Conclusión: la retención como ventaja competitiva",
+        paragraphs: [
+          "El cambio de paradigma es claro: adquirir usuarios a cualquier costo es una métrica de vanidad del pasado. En un entorno donde el costo de adquisición sigue escalando, la verdadera rentabilidad reside en blindar la base actual de usuarios. Como se ha expuesto, aumentar la retención en apenas un 5% puede disparar los beneficios entre un 25% y un 95%, demostrando empíricamente que el esfuerzo operativo debe enfocarse en el valor a largo plazo y no solo en la tracción inicial.",
+          "Mantener una relación LTV:CAC superior a 3:1 mediante un onboarding impecable, análisis de cohortes y estrategias de venta adicional transforma el embudo de ventas tradicional en un ciclo de crecimiento compuesto. Los negocios que liderarán sus mercados no serán los que gasten más en publicidad, sino aquellos que construyan experiencias de las que sus clientes simplemente no quieran prescindir.",
+        ],
+      },
+    },
+    tags: ["retención", "LTV", "CAC", "growth hacking", "fidelización"],
   },
   {
     id: "002",
@@ -246,7 +351,8 @@ export const articles: Article[] = [
         },
         {
           heading: "Mental and Digital Minimalism",
-          content: "Physical clutter is just one dimension. Consider your commitments, your schedule, your digital life. Do you need to be on five social media platforms? Must you say yes to every invitation? Minimalism applies to time and attention too. Protect your mental space as carefully as your physical space.",
+          content:
+            "Physical clutter is just one dimension. Consider your commitments, your schedule, your digital life. Do you need to be on five social media platforms? Must you say yes to every invitation? Minimalism applies to time and attention too. Protect your mental space as carefully as your physical space.",
         },
         {
           heading: "The Freedom of Less",

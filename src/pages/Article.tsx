@@ -1,7 +1,8 @@
 import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
-import { getArticleById, getRelatedArticles } from "@/data/articles";
+import { getArticleById, getRelatedArticles, isStructuredArticleConclusion } from "@/data/articles";
 import { Facebook, Twitter, Linkedin, Link2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -18,7 +19,7 @@ const Article = () => {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    toast.success("Link copied to clipboard!");
+    toast.success("Enlace copiado al portapapeles");
   };
 
   const getCategoryClass = (cat: string) => {
@@ -45,7 +46,7 @@ const Article = () => {
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to articles
+            Volver a artículos
           </a>
         </div>
 
@@ -68,7 +69,7 @@ const Article = () => {
               </span>
               <span className="text-sm text-muted-foreground">{article.date}</span>
               <span className="text-sm text-muted-foreground">•</span>
-              <span className="text-sm text-muted-foreground">{article.readTime} read</span>
+              <span className="text-sm text-muted-foreground">Lectura {article.readTime}</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
@@ -139,20 +140,82 @@ const Article = () => {
               {article.content.introduction}
             </p>
 
+            {article.content.inlineHeroAfterIntroduction ? (
+              <figure className="my-8 not-prose">
+                <div className="flex justify-center">
+                  <img
+                    src={article.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="max-w-full h-auto max-h-80 rounded-xl block"
+                  />
+                </div>
+                {article.content.inlineImageCaption ? (
+                  <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                    {article.content.inlineImageCaption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ) : null}
+
             {article.content.sections.map((section, index) => (
-              <div key={index} className="mb-10">
-                <h2 className="text-3xl font-bold mb-4">{section.heading}</h2>
-                <p className="text-lg leading-relaxed text-muted-foreground">
-                  {section.content}
-                </p>
+              <div key={index} className="mb-10 space-y-4">
+                <h2 className="text-3xl font-bold">{section.heading}</h2>
+                {section.content?.trim() ? (
+                  <p className="text-lg leading-relaxed text-muted-foreground">{section.content}</p>
+                ) : null}
+                {(section.paragraphs ?? []).map((para, i) => (
+                  <p key={i} className="text-lg leading-relaxed text-muted-foreground">
+                    {para}
+                  </p>
+                ))}
+                {section.orderedList?.length ? (
+                  <ol className="list-decimal list-outside pl-6 space-y-3 text-lg leading-relaxed text-muted-foreground">
+                    {section.orderedList.map((item, i) => (
+                      <li key={i} className="pl-1">
+                        {item}
+                      </li>
+                    ))}
+                  </ol>
+                ) : null}
+                {section.unorderedList?.length ? (
+                  <ul className="list-disc list-outside pl-6 space-y-3 text-lg leading-relaxed text-muted-foreground">
+                    {section.unorderedList.map((item, i) => (
+                      <li key={i} className="pl-1">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+                {section.blockquote ? (
+                  <blockquote className="border-l-4 border-accent pl-4 py-1 my-2 text-lg italic text-foreground">
+                    {section.blockquote}
+                  </blockquote>
+                ) : null}
               </div>
             ))}
 
-            <div className="mt-12 p-6 rounded-2xl bg-muted border-l-4 border-accent">
-              <p className="text-lg leading-relaxed italic text-foreground">
-                {article.content.conclusion}
-              </p>
-            </div>
+            {article.content.conclusion ? (
+              isStructuredArticleConclusion(article.content.conclusion) ? (
+                <div className="mt-12 p-6 rounded-2xl bg-muted border-l-4 border-accent space-y-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                    {article.content.conclusion.heading}
+                  </h2>
+                  {article.content.conclusion.paragraphs.map((para, i) => (
+                    <p key={i} className="text-lg leading-relaxed text-muted-foreground">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-12 p-6 rounded-2xl bg-muted border-l-4 border-accent">
+                  <p className="text-lg leading-relaxed italic text-foreground">
+                    {article.content.conclusion}
+                  </p>
+                </div>
+              )
+            ) : null}
           </div>
 
           {/* Tags */}
@@ -171,14 +234,14 @@ const Article = () => {
 
           {/* Mobile Share Buttons */}
           <div className="md:hidden mb-12 pb-12 border-b border-border">
-            <p className="text-sm font-semibold mb-4">Share this article</p>
+            <p className="text-sm font-semibold mb-4">Compartir este artículo</p>
             <div className="flex items-center gap-3">
               <button
                 onClick={handleCopyLink}
                 className="flex-1 py-3 rounded-full border border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center gap-2"
               >
                 <Link2 className="w-4 h-4" />
-                <span className="text-sm">Copy link</span>
+                <span className="text-sm">Copiar enlace</span>
               </button>
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}`}
@@ -203,18 +266,18 @@ const Article = () => {
 
           {/* Newsletter CTA */}
           <div className="mb-16 rounded-2xl bg-card p-8 md:p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Enjoyed this article?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">¿Te gustó este artículo?</h3>
             <p className="text-muted-foreground mb-6">
-              Subscribe to receive more insights like this directly in your inbox.
+              Suscribite para recibir más análisis como este en tu correo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Your email"
+                placeholder="Tu correo"
                 className="flex-1 px-4 py-3 rounded-full border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
               />
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-                Subscribe
+                Suscribite
               </Button>
             </div>
           </div>
@@ -223,7 +286,7 @@ const Article = () => {
         {/* Related Articles */}
         <section className="bg-muted py-16 animate-fade-in">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8 animate-slide-up">You might also like</h2>
+            <h2 className="text-3xl font-bold mb-8 animate-slide-up">También te puede interesar</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedArticles.map((relatedArticle, index) => (
                 <div key={relatedArticle.id} className={`animate-slide-up stagger-${Math.min(index + 1, 3)}`}>
@@ -234,6 +297,8 @@ const Article = () => {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 };

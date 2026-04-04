@@ -1,0 +1,10 @@
+---
+description: Ejecutar comandos de terminal solo en WSL (Linux), nunca en PowerShell nativo de Windows.
+alwaysApply: true
+---
+
+# Terminal: WSL obligatorio
+
+- **Todos** los comandos de shell (`npm`, `git`, `bun`, `vite`, tests, etc.) deben ejecutarse dentro de **WSL** (distribución Linux), no en PowerShell ni en CMD de Windows.
+- Asumí la ruta del repo bajo `/mnt/c/Users/...` (o la ruta WSL equivalente al workspace) y usá `wsl` / `bash -lc` desde el agente cuando el entorno por defecto sea Windows.
+- Esto incluye instalar dependencias, builds y scripts de `package.json`.

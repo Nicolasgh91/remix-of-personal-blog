@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/articles";
 
@@ -52,6 +53,8 @@ const Wellness = () => {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 };
