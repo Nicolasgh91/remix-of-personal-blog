@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { articles } from "@/data/articles";
 
 const Index = () => {
@@ -40,14 +41,60 @@ const Index = () => {
         </section>
 
         {/* Casos de éxito */}
-        <section className="max-w-4xl mx-auto py-12 md:py-8 px-4 animate-fade-in" aria-labelledby="casos-heading">
-          <div className="text-center space-y-6">
+        <section className="max-w-7xl mx-auto py-12 md:py-8 px-4 animate-fade-in" aria-labelledby="casos-heading">
+          <div className="text-center space-y-6 mb-12">
             <h2 id="casos-heading" className="text-3xl md:text-4xl font-bold leading-tight animate-slide-up">
               Casos de éxito
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto animate-slide-up stagger-1">
               Estrategias de adquisición aplicadas con resultados medibles.
             </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="animate-slide-up stagger-2">
+              <Card className="h-full border-border/80">
+                <CardHeader>
+                  <CardTitle className="text-xl">SaaS B2B</CardTitle>
+                  <p className="text-lg font-semibold text-accent pt-1">
+                    +140% LTV (Valor de vida del cliente)
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Implementación de algoritmos de calificación predictiva de leads y automatización del onboarding,
+                    reduciendo la fricción inicial y eliminando prospectos no calificados del embudo comercial.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="animate-slide-up stagger-3">
+              <Card className="h-full border-border/80">
+                <CardHeader>
+                  <CardTitle className="text-xl">Infraestructura tecnológica</CardTitle>
+                  <p className="text-lg font-semibold text-accent pt-1">-35% CAC (Costo de adquisición)</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Transición de campañas masivas de publicidad tradicional hacia una estrategia orgánica de alianzas con
+                    micro-influenciadores técnicos en LinkedIn, generando autoridad por asociación.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="animate-slide-up stagger-4">
+              <Card className="h-full border-border/80">
+                <CardHeader>
+                  <CardTitle className="text-xl">Consultoría financiera</CardTitle>
+                  <p className="text-lg font-semibold text-accent pt-1">+80% Leads calificados</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Reemplazo de formularios estáticos por calculadoras de ROI interactivas, estableciendo un ecosistema
+                    de captura de datos de origen (first-party data) resistente al bloqueo de cookies.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 

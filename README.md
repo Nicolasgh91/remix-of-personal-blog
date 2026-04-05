@@ -51,7 +51,7 @@ Rutas definidas en `src/App.tsx`:
 |------|-------------|
 | `/` | Inicio |
 | `/article/:id` | Detalle de artículo |
-| `/wellness` · `/travel` · `/creativity` · `/growth` | Listados por categoría |
+| `/creativity` · `/growth` | Listados por categoría |
 | `/about` · `/authors` · `/contact` | Páginas informativas |
 | `/style-guide` | Referencia de UI |
 | `/privacy` · `/terms` | Legales |

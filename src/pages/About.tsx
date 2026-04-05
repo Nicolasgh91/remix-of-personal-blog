@@ -23,7 +23,19 @@ const About = () => {
         {/* Trayectoria */}
         <section className="mb-16 space-y-4 text-muted-foreground animate-slide-up stagger-2">
           <h2 className="text-3xl font-bold text-foreground mb-2">Mi trayectoria en marketing</h2>
-          <p>Pasión por las métricas, el análisis de datos y la obsesión por mejorar la tasa de conversión.</p>
+          <p className="leading-relaxed">
+            A lo largo de la última década, he liderado estrategias de adquisición y retención para empresas de base
+            tecnológica y proveedores B2B. Mi enfoque nació de una frustración común en la industria: la dependencia
+            absoluta de la pauta publicitaria. Tras auditar decenas de embudos de venta, comprobé que el verdadero cuello
+            de botella rara vez es la falta de tráfico, sino la incapacidad de convertir y retener a esos usuarios a
+            largo plazo.
+          </p>
+          <p className="leading-relaxed">
+            Creo en el growth hacking no como una serie de tácticas temporales, sino como la alineación matemática entre
+            el producto, el marketing y la experiencia del usuario. Mi metodología se basa en instalar sistemas de
+            crecimiento predecibles, apalancando datos de origen (first-party data), optimización de la tasa de
+            conversión (CRO) y arquitecturas de automatización.
+          </p>
         </section>
 
         {/* Por qué hago esto */}

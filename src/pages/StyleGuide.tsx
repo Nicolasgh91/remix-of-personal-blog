@@ -118,8 +118,6 @@ const StyleGuide = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Category Tags</h2>
           <div className="flex flex-wrap gap-3">
-            <span className="px-4 py-2 rounded-full text-sm font-medium tag-wellness">Wellness</span>
-            <span className="px-4 py-2 rounded-full text-sm font-medium tag-travel">Travel</span>
             <span className="px-4 py-2 rounded-full text-sm font-medium tag-creativity">Creativity</span>
             <span className="px-4 py-2 rounded-full text-sm font-medium tag-growth">Growth</span>
             <span className="px-4 py-2 rounded-full text-sm font-medium tag-lifestyle">Lifestyle</span>

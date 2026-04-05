@@ -5,20 +5,6 @@ import { Mail, Instagram, Twitter } from "lucide-react";
 const Authors = () => {
   const authors = [
     {
-      name: "Emma Thompson",
-      role: "Wellness Editor",
-      bio: "Emma is a certified wellness coach and nutritionist with over 10 years of experience helping people create sustainable self-care practices. She believes in holistic approaches to health that honor both body and mind.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
-      articles: 24,
-    },
-    {
-      name: "Marcus Chen",
-      role: "Travel Writer",
-      bio: "Having visited over 60 countries, Marcus specializes in slow travel and cultural immersion. His writing explores how travel can be both transformative and sustainable, emphasizing meaningful connection over tourist checklists.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      articles: 31,
-    },
-    {
       name: "Sofia Rodriguez",
       role: "Creativity Columnist",
       bio: "Sofia is a multidisciplinary artist and creative consultant who helps individuals and teams unlock their creative potential. She's passionate about making creativity accessible to everyone, not just 'artists.'",
@@ -101,7 +87,7 @@ const Authors = () => {
           <h2 className="text-3xl font-bold mb-4">Want to Contribute?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             We're always looking for thoughtful voices to join our community. If you have insights 
-            to share on wellness, travel, creativity, or personal growth, we'd love to hear from you.
+            to share on creativity or personal growth, we'd love to hear from you.
           </p>
           <a
             href="/contact"

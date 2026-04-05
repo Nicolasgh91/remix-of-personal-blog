@@ -43,8 +43,6 @@ All colors MUST be HSL.
     --tag-financing: 210 50% 75%;
     --tag-lifestyle: 140 20% 70%;
     --tag-community: 25 35% 60%;
-    --tag-wellness: 280 30% 75%;
-    --tag-travel: 195 50% 70%;
     --tag-creativity: 330 40% 75%;
     --tag-growth: 50 45% 70%;
 
@@ -89,8 +87,6 @@ All colors MUST be HSL.
     --tag-financing: 210 40% 45%;
     --tag-lifestyle: 140 20% 40%;
     --tag-community: 25 30% 40%;
-    --tag-wellness: 280 25% 45%;
-    --tag-travel: 195 40% 45%;
     --tag-creativity: 330 35% 45%;
     --tag-growth: 50 40% 45%;
 
@@ -245,14 +241,6 @@ All colors MUST be HSL.
 
   .tag-community {
     @apply bg-[hsl(var(--tag-community))] text-primary;
-  }
-
-  .tag-wellness {
-    @apply bg-[hsl(var(--tag-wellness))] text-primary;
-  }
-
-  .tag-travel {
-    @apply bg-[hsl(var(--tag-travel))] text-primary;
   }
 
   .tag-creativity {
