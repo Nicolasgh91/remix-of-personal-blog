@@ -1,8 +1,8 @@
 import article001Banner from "@/assets/article-001/customer-lifetime-value-graph.webp";
 import article002Banner from "@/assets/article 002/SEO-en-videos-cortos.webp";
-import article003Banner from "@/assets/article 04/think-bigger.png";
-import article005Banner from "@/assets/article-005/predictive-analytics-hero.jpg";
-import article006Banner from "@/assets/article-006/first-party-data-hero.jpg";
+import article003Banner from "@/assets/article 04/think-bigger.webp";
+import article005Banner from "@/assets/article-005/predictive-analytics-hero.webp";
+import article006Banner from "@/assets/article-006/first-party-data-hero.webp";
 
 /** Texto único (cursiva en UI) o bloque con título + párrafos. Cadena vacía = sin bloque de conclusión. */
 export type ArticleConclusion =
@@ -70,7 +70,7 @@ export const articles: Article[] = [
     category: "Growth",
     date: "4 abr 2026",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&fm=webp",
     author: {
       name: "Alex Jensen",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
@@ -452,7 +452,7 @@ export const articles: Article[] = [
     category: "Growth",
     date: "Mar 10, 2025",
     readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&q=80&fm=webp",
     author: {
       name: "David Kim",
       avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80",

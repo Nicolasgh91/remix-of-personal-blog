@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { unsplashImgProps } from "@/lib/responsiveImage";
 
 interface ArticleCardProps {
   id: string;
@@ -9,7 +10,12 @@ interface ArticleCardProps {
   size?: "small" | "large";
 }
 
+const CARD_SIZES =
+  "(max-width: 767px) 100vw, (max-width: 1023px) 50vw, (max-width: 1535px) 33vw, 400px";
+
 const ArticleCard = ({ id, title, category, date, image, size = "small" }: ArticleCardProps) => {
+  const imgProps = unsplashImgProps(image, CARD_SIZES, 800);
+
   const getCategoryClass = (cat: string) => {
     const normalized = cat.toLowerCase();
     if (normalized.includes("financ")) return "tag-financing";
@@ -30,8 +36,12 @@ const ArticleCard = ({ id, title, category, date, image, size = "small" }: Artic
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden bg-muted rounded-[2.5rem]">
         <img
-          src={image}
+          {...imgProps}
           alt={title}
+          width={800}
+          height={600}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         

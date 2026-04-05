@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ArticleCard from "@/components/ArticleCard";
 import { getArticleById, getRelatedArticles, isStructuredArticleConclusion } from "@/data/articles";
+import { unsplashImgProps } from "@/lib/responsiveImage";
 import { Facebook, Twitter, Linkedin, Link2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -16,6 +17,7 @@ const Article = () => {
   }
 
   const relatedArticles = getRelatedArticles(article.id);
+  const heroImg = unsplashImgProps(article.image, "100vw", 1600);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -51,8 +53,12 @@ const Article = () => {
         {/* Hero Image */}
         <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] mb-12">
           <img
-            src={article.image}
+            {...heroImg}
             alt={article.title}
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
             style={
               article.heroImagePosition
@@ -89,6 +95,10 @@ const Article = () => {
                 <img
                   src={article.author.avatar}
                   alt={article.author.name}
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
                   className="w-14 h-14 rounded-full object-cover"
                 />
                 <div>

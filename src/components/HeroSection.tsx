@@ -1,15 +1,28 @@
 import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { unsplashImgProps } from "@/lib/responsiveImage";
+
+const HERO_IMAGE_URL =
+  "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&q=80&fm=webp";
+
+const heroImg = unsplashImgProps(
+  HERO_IMAGE_URL,
+  "(max-width: 767px) 100vw, (max-width: 1536px) 45vw, 640px"
+);
 
 const HeroSection = () => {
   return (
     <section className="relative rounded-[2.5rem] overflow-hidden bg-muted my-12 animate-fade-in">
       <div className="grid md:grid-cols-2 gap-6 md:gap-12 p-6 md:p-12 lg:p-16">
         {/* Left side - Image */}
-        <div className="relative aspect-[4/3] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in">
+        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[280px] rounded-[2rem] overflow-hidden animate-scale-in">
           <img
-            src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1920&q=80"
+            {...heroImg}
             alt="Hero"
+            width={1200}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
           />
         </div>
