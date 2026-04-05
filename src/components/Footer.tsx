@@ -1,3 +1,5 @@
+import PoweredBy from "@/components/ui/PoweredBy";
+
 const Footer = () => {
   return (
     <footer className="border-t border-border mt-16">
@@ -69,8 +71,15 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2026 Alex Jensen. Estrategias de crecimiento digital.</p>
+        <div className="pt-8 border-t border-border text-sm text-muted-foreground flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex items-center justify-center md:justify-start gap-4">
+            <p>© 2026 Alex Jensen. Estrategias de crecimiento digital.</p>
+            <span
+              className="hidden md:block h-4 w-px shrink-0 bg-border"
+              aria-hidden="true"
+            />
+          </div>
+          <PoweredBy />
         </div>
       </div>
     </footer>
