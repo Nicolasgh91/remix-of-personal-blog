@@ -1,6 +1,8 @@
 import article001Banner from "@/assets/article-001/customer-lifetime-value-graph.webp";
 import article002Banner from "@/assets/article 002/SEO-en-videos-cortos.webp";
 import article003Banner from "@/assets/article 04/think-bigger.png";
+import article005Banner from "@/assets/article-005/predictive-analytics-hero.jpg";
+import article006Banner from "@/assets/article-006/first-party-data-hero.jpg";
 
 /** Texto único (cursiva en UI) o bloque con título + párrafos. Cadena vacía = sin bloque de conclusión. */
 export type ArticleConclusion =
@@ -303,6 +305,145 @@ export const articles: Article[] = [
       },
     },
     tags: ["LinkedIn", "B2B", "micro-influencers", "autoridad", "growth hacking"],
+  },
+  {
+    id: "005",
+    title: "Calificación predictiva de leads: algoritmos para optimizar la conversión B2B",
+    subtitle:
+      "Cómo el análisis de datos y el aprendizaje automático están reemplazando la intuición humana para predecir qué contactos tienen probabilidad real de compra.",
+    category: "Growth",
+    date: "25 abr 2026",
+    readTime: "8 min",
+    image: article005Banner,
+    author: {
+      name: "Alex Jensen",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+      bio: "Analista de crecimiento y estratega digital",
+    },
+    content: {
+      introduction:
+        "El volumen de contactos generados en la parte superior del embudo (ToFu) ha dejado de ser la métrica principal de éxito para los equipos de crecimiento. En el entorno B2B, donde los ciclos de venta son largos y requieren múltiples puntos de contacto, inundar a los representantes de ventas con prospectos no calificados genera fatiga operativa, desperdicio de recursos y un incremento injustificado en el costo de adquisición (CAC).\n\nPara resolver este cuello de botella, la industria está transicionando de los modelos manuales de puntuación hacia la calificación predictiva de leads (predictive lead scoring), una metodología que utiliza algoritmos de aprendizaje automático para analizar el historial de conversiones y predecir qué prospectos tienen una intención real de compra.",
+      sections: [
+        {
+          heading: "El fracaso de la calificación heurística tradicional",
+          paragraphs: [
+            "Durante años, las empresas han utilizado sistemas de lead scoring basados en reglas manuales o heurísticas. Un gerente de marketing definía arbitrariamente que descargar un PDF sumaba 10 puntos, visitar la página de precios sumaba 15 puntos y tener un cargo de «Director» sumaba 20 puntos. Al alcanzar los 50 puntos, el contacto era enviado al equipo comercial.",
+            "Este enfoque presenta fallas estructurales graves:",
+          ],
+          orderedList: [
+            "Sesgo humano: las reglas se basan en suposiciones de lo que «debería» indicar intención de compra, no en correlaciones estadísticas reales.",
+            "Falsos positivos: un estudiante investigando para una tesis puede descargar tres documentos técnicos y visitar la página de precios, alcanzando el umbral de calificación sin tener presupuesto ni intención comercial.",
+            "Incapacidad de escalar: a medida que se añaden nuevos canales de adquisición y productos, mantener las reglas manuales se vuelve logísticamente imposible.",
+          ],
+        },
+        {
+          heading: "Arquitectura de un modelo predictivo",
+          paragraphs: [
+            "El lead scoring predictivo elimina la intuición de la ecuación. Alimenta un modelo de aprendizaje automático con datos históricos del CRM (tanto de negocios ganados como perdidos) para que el algoritmo descubra patrones matemáticos ocultos.",
+            "Para que el modelo sea preciso, requiere la ingesta de cuatro capas de datos fundamentales:",
+          ],
+          unorderedList: [
+            "Datos demográficos y firmográficos: tamaño de la empresa, facturación anual, sector industrial y cargo del contacto.",
+            "Datos de comportamiento explícito: interacciones directas con los activos de la empresa (apertura de correos, asistencia a webinars, uso de pruebas gratuitas).",
+            "Datos de intención de terceros (Intent data): información recolectada fuera del ecosistema de la empresa. Por ejemplo, si los empleados de una cuenta objetivo están buscando activamente en foros sobre «software de automatización de marketing».",
+            "Datos de tecnografía: el conjunto de tecnologías (stack tecnológico) que la empresa objetivo ya utiliza, lo cual puede indicar compatibilidad o madurez digital para adoptar la solución ofrecida.",
+          ],
+        },
+        {
+          heading: "Implementación algorítmica en el embudo de ventas",
+          paragraphs: [
+            "Una vez que el modelo procesa estas capas, no emite una puntuación estática, sino una probabilidad dinámica de conversión (por ejemplo, 87%). Esta predicción permite estructurar flujos de trabajo automatizados mucho más eficientes.",
+            "Los prospectos con una probabilidad superior al 80% (considerados Sales Qualified Leads o SQL) son enrutados instantáneamente al equipo comercial para un abordaje personalizado. Por el contrario, los prospectos en el rango del 40% al 79% se mantienen en secuencias de nutrición (nurturing) automatizadas hasta que su comportamiento eleve su puntuación predictiva. Aquellos por debajo del 40% son descartados o enviados a campañas masivas de muy bajo costo operativo.",
+          ],
+        },
+        {
+          heading: "Alineación entre marketing y ventas (Smarketing)",
+          paragraphs: [
+            "Uno de los beneficios colaterales más poderosos de la calificación predictiva es la eliminación de la fricción entre los departamentos. Históricamente, ventas acusa a marketing de enviar prospectos irrelevantes («leads basura»), mientras que marketing acusa a ventas de no dar seguimiento a los contactos generados.",
+            "Al establecer un modelo matemático objetivo, el criterio de lo que constituye un prospecto calificado deja de ser una opinión departamental para convertirse en un acuerdo de nivel de servicio (SLA) respaldado por datos. Esto optimiza drásticamente el tiempo de los representantes, quienes ahora invierten sus horas exclusivamente en cuentas con alta propensión de cierre, elevando la tasa de ganancia (win rate).",
+          ],
+        },
+      ],
+      bibliography: {
+        heading: "Bibliografía de referencia",
+        content:
+          "Para la estructuración de este análisis sobre modelos de puntuación algorítmica, se han consultado las siguientes fuentes técnicas y reportes de mercado:",
+        unorderedList: [
+          "Syam, N., & Sharma, A. (2018): «Waiting for a sales renaissance in the fourth industrial revolution: Machine learning and artificial intelligence in sales research and practice.» Industrial Marketing Management.",
+          "Gartner (2024): The Future of Sales: Transitioning to Predictive and Prescriptive Analytics (estudio sobre la adopción de IA en la priorización del pipeline B2B).",
+          "Forrester Research: The Forrester Wave: B2B Predictive Marketing Analytics (análisis comparativo de plataformas de datos de intención y calificación automatizada).",
+        ],
+      },
+      conclusion: {
+        heading: "Conclusión: el tiempo como activo no renovable",
+        paragraphs: [
+          "La implementación de algoritmos predictivos para la calificación de leads no es simplemente una actualización de software; es una reestructuración profunda de cómo una empresa valora el tiempo de su talento humano. Forzar a ejecutivos de ventas altamente capacitados a contactar prospectos fríos basándose en puntuaciones arbitrarias es un error de arquitectura de negocios. Al delegar la fase de calificación a modelos matemáticos impulsados por datos históricos e intención de compra, las organizaciones logran que la intervención humana ocurra únicamente en el punto de máximo apalancamiento, garantizando un crecimiento escalable y márgenes operativos superiores.",
+        ],
+      },
+    },
+    tags: ["lead scoring", "IA", "ventas B2B", "automatización", "growth hacking"],
+  },
+  {
+    id: "006",
+    title: "Estrategias de datos de origen: el fin de las cookies y la soberanía de la información",
+    subtitle:
+      "La eliminación progresiva de las cookies de terceros obliga a las empresas a construir ecosistemas propios de recolección de datos mediante intercambio de valor directo.",
+    category: "Growth",
+    date: "30 abr 2026",
+    readTime: "7 min",
+    image: article006Banner,
+    author: {
+      name: "Alex Jensen",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
+      bio: "Analista de crecimiento y estratega digital",
+    },
+    content: {
+      introduction:
+        "Durante más de una década, el crecimiento digital se basó en un ecosistema frágil: el alquiler de audiencias a través de rastreadores de terceros. Las empresas construyeron embudos de adquisición enteros dependiendo de la capacidad de plataformas publicitarias para rastrear a los usuarios a través de múltiples sitios web. Con la implementación global de leyes de privacidad estrictas y el bloqueo nativo de cookies por parte de los principales navegadores y sistemas operativos, ese paradigma ha llegado a su fin.\n\nLa depreciación de las cookies de terceros no es el fin del marketing digital, sino el final del marketing perezoso. Obliga a las organizaciones a transicionar hacia un modelo donde los datos de los usuarios no se extraen de forma invisible, sino que se ganan activamente.",
+      sections: [
+        {
+          heading: "La ilusión de alquilar audiencias",
+          paragraphs: [
+            "Depender exclusivamente del píxel de una red social para entender el comportamiento del consumidor implica delegar el activo más importante de la empresa a un proveedor externo. Cuando los algoritmos cambian o las políticas de privacidad de los dispositivos móviles bloquean el rastreo, los costos de adquisición (CAC) se disparan y las campañas de retargeting pierden precisión.",
+            "Para construir un negocio escalable, la arquitectura de datos debe ser propia. Aquí es donde entra en juego el first-party data (datos de origen), información recolectada directamente por la empresa a través de sus propios canales: su sitio web, su aplicación, su CRM o sus interacciones de soporte.",
+          ],
+        },
+        {
+          heading: "First-party y zero-party data como activos de infraestructura",
+          paragraphs: [
+            "Mientras que el first-party data se basa en el comportamiento observable en plataformas propias (qué páginas visita un usuario, qué productos añade al carrito), el ecosistema más valioso es el zero-party data. Este último se refiere a la información que un cliente comparte de manera proactiva e intencional.",
+            "Poseer estos datos permite segmentar con precisión milimétrica sin violar normativas de privacidad. Un modelo de aprendizaje automático alimentado por datos limpios de origen supera sistemáticamente a cualquier campaña segmentada por intereses genéricos en redes sociales.",
+          ],
+        },
+        {
+          heading: "Intercambio de valor: tácticas de recolección activa",
+          content:
+            "Los usuarios modernos protegen su información personal. Ya no entregan su correo electrónico a cambio de un boletín genérico. La recolección de datos de origen requiere ingeniería de valor; es decir, ofrecer una utilidad tan alta que justifique la transacción de la información.",
+          orderedList: [
+            "Herramientas interactivas y calculadoras: ofrecer una utilidad de software gratuita (por ejemplo, una calculadora de retorno de inversión o un auditor de SEO) a cambio de datos corporativos precisos. El usuario obtiene una respuesta inmediata y la empresa obtiene datos técnicos altamente calificados.",
+            "Cuestionarios de perfilado progresivo: en lugar de formularios estáticos e interminables, utilizar cuestionarios interactivos de opción múltiple que recomienden un producto o servicio específico basado en las respuestas. Esto genera zero-party data de extrema calidad, revelando puntos de dolor exactos.",
+            "Comunidades y programas de fidelización cerrados: exigir la creación de una cuenta gratuita para acceder a contenido premium, foros exclusivos o descuentos escalonados. El registro marca el inicio de la recolección de datos propios en un entorno autenticado.",
+          ],
+        },
+      ],
+      bibliography: {
+        heading: "Bibliografía de referencia",
+        content:
+          "Para el análisis técnico y estratégico sobre la transición hacia infraestructuras de datos propios, se han consultado los siguientes reportes del sector:",
+        unorderedList: [
+          "McKinsey & Company (2023): The demise of third-party cookies and identifiers (estudio sobre el impacto en el gasto publicitario y la necesidad de arquitecturas de datos de origen).",
+          "Forrester Research: Zero-Party Data Will Save Your Personalization Strategy (definición y aplicación práctica de los datos compartidos proactivamente por el usuario).",
+          "Interactive Advertising Bureau (IAB): State of Data Report (guías sobre cumplimiento normativo, privacidad e infraestructuras de recolección directa).",
+        ],
+      },
+      conclusion: {
+        heading: "Conclusión: la soberanía de los datos como ventaja competitiva",
+        paragraphs: [
+          "La transición hacia una estrategia de first-party data requiere abandonar el pensamiento transaccional de corto plazo. Construir bases de datos propias exige invertir en infraestructura tecnológica (CRMs avanzados, arquitecturas serverless) y, sobre todo, en contenido de valor real. Las empresas que asuman la responsabilidad de poseer, proteger y aprovechar sus propios datos no solo sobrevivirán al «apocalipsis de las cookies», sino que construirán un foso defensivo inexpugnable. Quien controla la relación directa y la información del cliente, controla la escalabilidad del negocio.",
+        ],
+      },
+    },
+    tags: ["first-party data", "cookies", "privacidad", "captación", "growth hacking"],
   },
   {
     id: "W001",
